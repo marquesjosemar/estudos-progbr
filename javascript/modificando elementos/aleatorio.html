@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        onload = function(){
+            const d1 = document.getElementById('el')
+
+
+            d1.addEventListener('click', clicar)
+            d1.addEventListener('mouseout', saiu)
+
+
+            function clicar(){
+                d1.innerHTML = 'clicou'
+                alert('clicou!')
+                d1.style.color = 'blue';
+            }
+
+            function saiu(){
+                d1.innerHTML = 'Clique de novo'
+                d1.style.color = 'black'
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <h1 id="el">Não clica aqui</h1>
+
+</body>
+</html>

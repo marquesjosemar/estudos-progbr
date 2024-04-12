@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const objeto = { nome: 'João', idade: 25 };
+        const objetoString = JSON.stringify(objeto);
+
+        localStorage.setItem('meuObjeto', objetoString);
+
+        const objetoRecuperadoString = localStorage.getItem('meuObjeto');
+        const objetoRecuperado = JSON.parse(objetoRecuperadoString);
+
+        console.log(objetoRecuperado);
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <div id="data"></div>
+
+    </div>
+</body>
+</html>

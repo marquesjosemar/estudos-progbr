@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usando o this</title>
+
+    
+</head>
+<body>
+
+    <h1 id="t1">título</h1>
+
+    <t2 id="t2">outro título</h2>
+
+    <h3 id="t3" onclick="f()"> clique aqui pra mostrar um alerta</h3>
+        <!-- aqui o título 1 vai ser em caixa alta quando clicado...o titulo 2 vai ficar em caixa alta quando o mouse passar por cima e quando o mouse sair, ele volta pro normal -->
+
+        <script>
+            const t1 = document.getElementById("t1");
+            const t2 = document.getElementById("t2");
+            const t3 = document.getElementById("t3")
+    
+          t1.onclick = colocarEmMaiusculo;
+          t2.onmouseover = colocarEmMaiusculo;
+          t2.onmouseout = sairMaiusculo;
+          
+          
+          
+            function colocarEmMaiusculo() {
+                this.innerHTML = this.innerHTML.toUpperCase();
+                
+            }
+
+            function sairMaiusculo(){
+                this.innerHTML = this.innerHTML.toLowerCase();
+            }
+
+            
+
+    
+        </script>
+</body>
+</html>

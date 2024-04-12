@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista de tarefa</title>
+    <style>
+        body {
+            display: grid;
+            grid-column: auto;
+            margin: auto;
+            width: 50vw;
+        }
+    </style>
+<body>
+
+    <h1>Lista de Tarefas</h1>
+
+    <input type="text" id="input-tarefa" placeholder="Digite uma tarefa">
+    <button id="botao-adicionar">Adicionar</button>
+  
+    <ol id="lista-tarefas">
+      <!-- Os itens da lista serão adicionados dinamicamente com JavaScript -->
+    </ol>
+  
+    <input type="text" id="input-id-tarefa" placeholder="ID da tarefa a remover">
+    <button id="botao-remover">Remover</button>
+  
+    <script>
+      // Variável para armazenar as tarefas
+      let tarefas = [];
+  
+      // Função para adicionar uma tarefa à lista
+      function adicionarTarefa() {
+        const inputTarefa = document.getElementById('input-tarefa');
+        const textoTarefa = inputTarefa.value;
+  
+        if (textoTarefa !== '') {
+          const tarefa = {
+            id: new Date().getUTCDate(), // ID único usando a data e hora atual
+            texto: textoTarefa
+          };
+  
+          tarefas.push(tarefa);
+          inputTarefa.value = ''; // Limpar o campo de entrada
+          atualizarListaTarefas();
+        }
+      }
+  
+      // Função para remover uma tarefa da lista
+      function removerTarefa() {
+      const inputIdTarefa = document.getElementById('input-id-tarefa');
+      const idTarefa = parseInt(inputIdTarefa.value);
+
+      if (!isNaN(idTarefa)) {
+        tarefas = tarefas.filter(tarefa => tarefa.id !== idTarefa);
+        inputIdTarefa.value = ''; // Limpar o campo de entrada
+        atualizarListaTarefas();
+      }
+    }
+  
+      // Função para atualizar a exibição da lista de tarefas
+      function atualizarListaTarefas() {
+        const listaTarefas = document.getElementById('lista-tarefas');
+        listaTarefas.innerHTML = '';
+  
+        tarefas.forEach(tarefa => {
+          const itemTarefa = document.createElement('li');
+          itemTarefa.textContent = tarefa.texto;
+          listaTarefas.appendChild(itemTarefa);
+        });
+      }
+  
+      // Adicionar event listener ao botão de adicionar tarefa
+      const botaoAdicionar = document.getElementById('botao-adicionar');
+      botaoAdicionar.addEventListener('click', adicionarTarefa);
+  
+      // Adicionar event listener ao botão de remover tarefa
+      const botaoRemover = document.getElementById('botao-remover');
+      botaoRemover.addEventListener('click', removerTarefa);
+    </script>
+
+  
+</body>
+</html>

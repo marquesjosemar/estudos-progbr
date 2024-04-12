@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+/* PASSOS:
+ 1 - LINKAR O BOTÃO DE ATIVAR CONTAGEM ATRAVES DO INNERHTML
+ 2 - COLOCAR ESSE INNERHTML EM UMA VARIAVEL CHAMADA CRONOMETRO
+ 3 - CRIAR UMA VARIAVEL CHAMADA SOMA PRA SOMAR O CRONOMETRO MAIS ELE MESMO
+ 4 - LINKAR O CAMPO 'TEMPO' Á VARIAVEL SOMA
+ 5 - DEFINIR O TEMPO DE CRONOMETRO, QUE NO CASO FOI DE 1 SEGUNDO
+ 6 - COLOCAR TUDO QUE FOI FEITO ATE AQUI NUMA FUNCÃO ANONIMA(SEM NOME)
+ 7 - COLOCAR ESSA FUNÇÃO DENTRO DO MÉTODO SETINTERVAL
+ 8 - COLOCAR ESSE METODO SETINTERVAL A UMA VARIAVEL CHAMADA TEMPO
+ 9 - COLOCAR TUDO QUE FOI FEITO AQUI DENTRO DE UMA FUNÇÃO CHAMADA ATIVARCONTAGEM(), É O MESMO NOME DA FUNÇÃO DA CHAMADA NO BOTÃO HTML
+ 
+ PARAR A CONTAGEM:
+ 10 - USA O METODO CLEARINTERVAL E NO PARAMETRO COLOCA A VARIAVEL TEMPO. LEMBRANDO QUE ESSA VARIÁVEL É GLOBAL, NÃO SE USA LET, NEM VAR, CONST.
+ 11 - COLOCA ESSE MÉTODO DENTRO DE UMA FUNÇÃO CHAMADA PARARcONTAGEM() É A MESMA CHAMADA DO BOTÃO PARAR CONTAGEM, DENTRO DE HTML NO ONCLICK DE BUTTON. 
+  */
+    function ativarContagem(){
+            tempo = setInterval(function() { //variavel global sem var, let ou const para ser acessada em outra função. 
+            var cronometro = document.getElementById('tempo').innerHTML
+            var soma = Number(cronometro) - 1;
+
+                    if (soma === 0) {
+                        document.getElementById('tempo').innerHTML = 'Tempo Esgotado!';
+                        pararContagem();    
+                    } else {
+                        document.getElementById('tempo').innerHTML = soma;
+                    }
+
+            
+            },1000);
+    }
+
+    function pararContagem() {
+        clearInterval(tempo);
+
+    }
+    
+    </script>
+</head>
+
+
+<body>
+    
+    <h1>Controle de Tempo</h1>
+
+    <h2 id="tempo">10</h2>
+
+    <button onclick="ativarContagem()" class="start">Ativar Contagem</button>
+    <button onclick="pararContagem()" class="stop">Parar Contagem</button>
+
+
+  
+</body>
+</html>

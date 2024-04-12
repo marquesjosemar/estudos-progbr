@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Sorteio</title>
+
+    <script>
+        let cores = ["Vermelho","Verde", "Azul"];
+
+        function sortear(){
+
+            let np = cores.length;
+            let ns = Math.floor(Math.random() * np);
+
+            document.getElementById("d").innerHTML = cores[ns]; 
+        }
+
+        function sortear2(){
+
+            let np = cores.length;
+            let ns = Math.floor(Math.random() * np);
+
+            document.getElementById("d2").innerHTML = cores[ns]; 
+        }
+
+        function sortear3(){
+
+            let np = cores.length;
+            let ns = Math.floor(Math.random() * np);
+
+            document.getElementById("d3").innerHTML = cores[ns]; 
+        }
+
+        /* a ideia aqui foi criar uma pagina de sorteio onde a pessoa clica no botão e gerasse um nome aleatório, pré defino em uma array.
+            1 - definir onclick no button
+            2 - ligar o h2 que é o elemento que vai mostrar o nome, através de innerHTML, que vai receber a variável pessoas e o resultado de ns.
+            3- a variavel ns é o calculo do sorteio, onde random é o modo aleatório math, e floor pra garantir que vai ser arredondado. multiplicado por np.
+            4 - np é a variavel que vai receber da matriz pessoas.length, length quer dizer a quantidade de itens no array.
+        */
+    </script>
+</head>
+<body>
+    
+<h1>clique em sortear</h1>
+<h2 id="d"></h2>
+<h2 id="d2"></h2>
+<h2 id="d3"></h2>
+    <button onclick="sortear(), sortear2(), sortear3()" id="botao">Sortear</button>
+    
+</body>
+</html>
